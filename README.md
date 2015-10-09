@@ -61,7 +61,8 @@ Device files and profiles are system specific and will not be provided. The foll
 ##### Standard configuration #####
 Position | Type | Part#
 -------: | ---- | -----
-1&ndash;3, 8  | Deck Platepad | `G5498b#004`
+1, 2, 8  | Deck Platepad | `G5498b#004`
+3        | Mirrored Barcode Reader | `G5498B#031`
 4, 6     | Peltier Thermal Station (Inheco) | `G5498b#021`
 5        | Orbital Shaking Station | `G5498b#033`
 7        | Magnetic Bead Accessory | `G5498b#008`
