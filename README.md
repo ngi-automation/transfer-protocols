@@ -61,7 +61,8 @@ Device files and profiles are system specific and will not be provided. The foll
 ##### Standard configuration #####
 Position | Type | Part#
 -------: | ---- | -----
-1&ndash;3, 8  | Deck Platepad | `G5498b#004`
+1, 2, 8  | Deck Platepad | `G5498b#004`
+3        | Mirrored Barcode Reader | `G5498B#031`
 4, 6     | Peltier Thermal Station (Inheco) | `G5498b#021`
 5        | Orbital Shaking Station | `G5498b#033`
 7        | Magnetic Bead Accessory | `G5498b#008`
@@ -101,7 +102,7 @@ Automation protocols made available by NGI Sweden at https://github.com/ngi-auto
 [zip]: https://github.com/ngi-automation/transfer-protocols/archive/master.zip
 [import]: http://www.velocity11.com/techdocs/AutomationSolutionsKB/vworks4_ug/11_Troubleshooting.15.03.html#2005458
 [catalog]: http://www.chem.agilent.com/Library/catalogs/Public/5991-0369EN.pdf
-[sop]: *
+[sop]: https://goo.gl/6FvStU
 [device-file]: http://www.velocity11.com/techdocs/AutomationSolutionsKB/vworks4_ug/02_CreateProtocolBasic.04.08.html#1981042
 
 ---
