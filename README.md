@@ -25,22 +25,10 @@ This document describes how to set up the automated transfer protocols for the A
 
 #### Included files ####
 ```
-illumina_double-spri.pro
-illumina_spri.pro
-qpcr-384_setup_ver3.pro
-truseq_nano.VWForm
-truseq_nano.js
-truseq_nano.rst
-truseq_nano_ligation.pro
-truseq_nano_pcr.pro
-truseq_nano_reaction.pro
-truseq_nano_setup1.pro
-truseq_nano_setup2.pro
-truseq_nano_setup3.pro
-truseq_nano_setup4.pro
-truseq_nano_setup5.pro
-truseq_nano_setup6.pro
-truseq_nano_setup7.pro
+transfer.pro
+transfer_dilution.pro
+transfer_form.VWForm
+transfer_lib.js
 all_labware_liquids.vzp
 resources/1313497192_media_controls_light_pause.png
 resources/1313497517_media_controls_light_play.png
