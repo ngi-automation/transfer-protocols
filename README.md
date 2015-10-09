@@ -102,7 +102,7 @@ Automation protocols made available by NGI Sweden at https://github.com/ngi-auto
 [zip]: https://github.com/ngi-automation/transfer-protocols/archive/master.zip
 [import]: http://www.velocity11.com/techdocs/AutomationSolutionsKB/vworks4_ug/11_Troubleshooting.15.03.html#2005458
 [catalog]: http://www.chem.agilent.com/Library/catalogs/Public/5991-0369EN.pdf
-[sop]: *
+[sop]: https://goo.gl/6FvStU
 [device-file]: http://www.velocity11.com/techdocs/AutomationSolutionsKB/vworks4_ug/02_CreateProtocolBasic.04.08.html#1981042
 
 ---
