@@ -1,4 +1,4 @@
-# Automated TruSeq Nano Installation Guide #
+# Automated Transfer Protocols Installation Guide #
 **For Agilent NGS Workstation Option B**
 
 ## Contents ##
@@ -9,7 +9,7 @@
 5. [License](#license)
 
 ## Description ##
-This document describes how to set up the automated Nextera Rapid Capture protocol for the Agilent NGS Workstation created at NGI Stockholm.
+This document describes how to set up the automated transfer protocols for the Agilent NGS Workstation created at NGI Stockholm.
 
 ## Requirements ##
 - Agilent NGS Workstation :warning: <i><b>Option B only</i></b>
@@ -128,8 +128,6 @@ Automation protocols made available by NGI Sweden at https://github.com/ngi-auto
 ```
 *VWorks Automation Control*, *Bravo* and other things relating to the *Agilent NGS Workstation* are trademarks owned by Agilent Technologies, Inc. (Santa Clara, CA 95052-8058, US).
 
-*Nextera Rapid Capture* is a trademark owned by Illumina, Inc. (San Diego, CA 92122 US)
-
 [email]: mailto:joel.gruselius@scilifelab.se "E-mail author"
 [ngi]: https://portal.scilifelab.se/genomics/ "NGI Stockholm"
 [scilife]: http://www.scilifelab.se/platforms/ngi/ "SciLifeLab"
@@ -143,4 +141,4 @@ Automation protocols made available by NGI Sweden at https://github.com/ngi-auto
 
 >[National Genomics Infrastructure][ngi] at [SciLifeLab][scilife]  
 <joel.gruselius@scilifelab.se>  
-May 2014
+October 2015
