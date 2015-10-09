@@ -56,7 +56,7 @@ and extract to `C:\VWorks Workspace\Protocol Files`. Rename the resulting `trans
 Use the import feature in VWorks from `File › Import`in the toolbar and select the `all_labware_liquids.vzp` file included. See the [VWorks Knowledge Base][import] for more information.
 
 #### Device files ####
-Device files and profiles are system specific and will not be provided. Two different Bravo configurations are used in the NRC protocols (one being the "standard" configuration):
+Device files and profiles are system specific and will not be provided. The following Bravo configuration is used in the transfer protocols:
 
 ##### Standard configuration #####
 Position | Type | Part#
@@ -67,30 +67,9 @@ Position | Type | Part#
 7        | Magnetic Bead Accessory | `G5498b#008`
 9        | Thermal Station (ThermoCube) | `G5498b#036`/`7`/`8`
 
-##### Capture configuration #####
-Same as above but with the following modification:
-
-Position | Type | Part#
--------: | ---- | -----
-6        | Thermal Station w Deepwell Plate Insert | `G5498b#012`
-
 For reference see Agilent's [accessories catalog][catalog] for the Bravo.
 
-Each `.pro` file must have the correct device file set:
-
-Protocol file | Device file
--------- | -----------
-`nextera.pro` | Standard
-`nextera_pcr.pro` | Standard
-`nextera_spri.pro` | Standard
-`nextera_capture_hyb.pro` | Standard
-`nextera_capture_wash.pro` | Capture
-`nextera_capture_elute.pro` | Capture
-`nextera_intermisson1.pro` | Standard
-`nextera_intermission2.pro` | Standard
-`nextera_intermission3.pro` | Standard
-
-See the [VWorks Knowledge Base][device-file] for more information on how to select the device file.
+Each `.pro` file must have the correct device file set. See the [VWorks Knowledge Base][device-file] for more information on how to select the device file.
 
 ## Protocol ##
 
