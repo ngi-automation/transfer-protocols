@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='536b7355b628fe2cd32b22d6b51be1ee' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
+<Velocity11 file='Protocol_Data' md5sum='8992be14bca7be9dc3b4c0f896fca0db' version='2.0' >
+	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
 	<Processes >
@@ -429,6 +429,16 @@ task.Body = msg;
 						<Parameter Category='' Name='Free empty stackers' Value='0' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='SIGNAL_TIPS' />
+					</Waitfors_To_Signal>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='2' />
@@ -518,6 +528,13 @@ task.Body = msg;
 						<Parameter Category='' Name='Location to use' Value='1' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Wait For' Waitfor='SIGNAL_TIPS' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -582,7 +599,7 @@ task.Body = msg;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -650,7 +667,7 @@ var counter = 0;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -693,7 +710,7 @@ var counter = 0;' />
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -736,7 +753,7 @@ var counter = 0;' />
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -767,7 +784,7 @@ var counter = 0;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -807,7 +824,7 @@ var counter = 0;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -838,7 +855,7 @@ var counter = 0;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -874,7 +891,7 @@ if(buffer96Mode) {
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -955,7 +972,7 @@ if(buffer96Mode) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -998,7 +1015,7 @@ if(buffer96Mode) {
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -1041,7 +1058,7 @@ if(buffer96Mode) {
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -1082,7 +1099,7 @@ if(hasTransfer) {
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -1113,7 +1130,7 @@ if(hasTransfer) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>

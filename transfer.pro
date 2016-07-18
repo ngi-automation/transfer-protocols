@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='6182a0c3a1e63ea009c09ea8849f4858' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/transfer/transfer_lib.js&apos;);
+<Velocity11 file='Protocol_Data' md5sum='9ac992441a5dc1c835d0aa2a94c63677' version='2.0' >
+	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
 	<Processes >
@@ -42,6 +42,8 @@ var filePath = global.formFile;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var tm = new TransferManager(&quot;transfer&quot;);
 tm.openTransferFile(filePath);
+
+var MAX_VOLUME = 170;
 
 var sourcePlate, destinationPlate;
 var plateSet = {
@@ -100,6 +102,26 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::User Message' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(tm.volumeLimitedTo(MAX_VOLUME)) {
+	task.skip();
+} else {
+	task.Body = &quot;The transfer instruction file contains volumes above what the tip can hold (&quot; + MAX_VOLUME + &quot; uL). Please abort the run and check the file.&quot;;
+}' />
+					<Parameters >
+						<Parameter Category='' Name='Title' Value='Volume warning' />
+						<Parameter Category='' Name='Body' Value='' />
+						<Parameter Category='' Name='Only show the first time' Value='' />
+						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
+						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
+					</Parameters>
+				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='startup' />
 				</Plate_Parameters>
@@ -149,7 +171,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='34' />
+						<Setting Name='Estimated time' Value='38' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(ignoreBarcodes) task.skip();
 var msg = &quot;&quot;;
@@ -185,6 +207,19 @@ task.Body = msg;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
 				</Task>
@@ -205,9 +240,6 @@ task.Body = msg;' />
 					</Parameters>
 					<Parameter >
 						<useOriginalLocations Name='useOriginalLocations' Value='1' />
-						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1; cassette 1, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 2, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 3, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 4, slot 1, slot 2, slot 3, slot 4, slot 5' />
-						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
 				<Plate_Parameters >
@@ -255,6 +287,19 @@ task.Body = msg;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
 				</Task>
@@ -295,6 +340,16 @@ task.Body = msg;' />
 						<Parameter Category='' Name='Free empty stackers' Value='0' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='SIGNAL_TIPS' />
+					</Waitfors_To_Signal>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='2' />
@@ -317,6 +372,19 @@ task.Body = msg;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
@@ -384,6 +452,13 @@ task.Body = msg;' />
 						<Parameter Category='' Name='Location to use' Value='1' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Wait For' Waitfor='SIGNAL_TIPS' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -392,6 +467,19 @@ task.Body = msg;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
@@ -435,7 +523,7 @@ task.Body = msg;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='14' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -444,7 +532,7 @@ task.Body = msg;' />
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -515,7 +603,7 @@ var hasTransfer = !!tm.getSize();
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -524,10 +612,11 @@ var hasTransfer = !!tm.getSize();
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
-	task.Volume = tm.getVolume();
+	var vol = tm.getVolume();
+	task.Volume = (vol &lt;= MAX_VOLUME) ? vol : MAX_VOLUME;
 	task.Wellselection = [tm.getWellSelectionTransferSource()];
 } else {
 	task.skip();
@@ -556,7 +645,7 @@ var hasTransfer = !!tm.getSize();
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -568,7 +657,8 @@ var hasTransfer = !!tm.getSize();
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
-	task.Volume = tm.getVolume();
+	var vol = tm.getVolume();
+	task.Volume = (vol &lt;= MAX_VOLUME) ? vol : MAX_VOLUME;
 	task.Wellselection = [tm.getWellSelectionTransferDestination()];
 } else {
 	task.skip();
@@ -598,7 +688,7 @@ var hasTransfer = !!tm.getSize();
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -639,7 +729,7 @@ if(hasTransfer) {
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -670,7 +760,7 @@ if(hasTransfer) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 ï¿½L Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
 					</PipetteHead>
 				</Task>
@@ -732,7 +822,7 @@ if(hasTransfer) {
 print(&quot;Completed transfer &quot; + index + &quot;/&quot; + tm.getSize());' />
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
