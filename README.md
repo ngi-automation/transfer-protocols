@@ -92,7 +92,7 @@ The full license can also be found in the file LICENSE and must included when re
 
 If this method is used to generate results for publication we ask that you include a reference to this repository, something like:
 ```
-Automation protocols made available by NGI Sweden at https://github.com/ngi-automation/transfer-protocols
+Automation protocols made available by the National Genomics Infrastructure Stockholm at https://github.com/ngi-automation/transfer-protocols
 ```
 *VWorks Automation Control*, *Bravo* and other things relating to the *Agilent NGS Workstation* are trademarks owned by Agilent Technologies, Inc. (Santa Clara, CA 95052-8058, US).
 
