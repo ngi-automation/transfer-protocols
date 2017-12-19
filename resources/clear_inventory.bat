@@ -1,2 +1,2 @@
-mysql.exe velocity11 < "C:\VWorks Workspace\Protocol Files\nextera-xt\resources\clear_inventory.sql"
+mysql.exe velocity11 < "C:\VWorks Workspace\Protocol Files\transfer-protocols\resources\clear_inventory.sql"
 
